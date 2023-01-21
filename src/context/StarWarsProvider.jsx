@@ -17,7 +17,6 @@ function StarWarsProvider({ children }) {
         setLoading(false);
       });
   }, []);
-
   const contextValue = {
     data,
     loading,
