@@ -22,7 +22,8 @@ function Table() {
       return acc.filter((a) => +a[colu] === +valu);
     }, planets);
   }
-
+  const search = saveFilter.map((a) => a);
+  console.log(search);
   const handleSearch = planets.filter((a) => a.name.includes(filtered));
 
   return (
@@ -70,6 +71,18 @@ function Table() {
         >
           Filtrar
         </button>
+        <br />
+        <ul>
+          {
+            saveFilter.map((a, index) => {
+              const { comparison: compa, column: colu, imputValue: valu } = a;
+              const imp = `${compa} ${colu} ${valu}`;
+              return (
+                <li key={ index }>{imp}</li>
+              );
+            })
+          }
+        </ul>
       </div>
       <table>
         <thead>
