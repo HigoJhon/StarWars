@@ -1,9 +1,13 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import StarWarsContext from '../context/StarWarsContext';
+
+const handleOptions = ['population', 'orbital_period', 'diameter', 'rotation_period',
+  'surface_water'];
 
 function Table() {
   const { data } = useContext(StarWarsContext);
   const [filtered, setFilter] = useState('');
+  const [options, setOption] = useState(handleOptions);
   const [column, setColumn] = useState('population');
   const [comparison, setComparison] = useState('maior que');
   const [imputValue, setValue] = useState(0);
@@ -22,9 +26,16 @@ function Table() {
       return acc.filter((a) => +a[colu] === +valu);
     }, planets);
   }
-  const search = saveFilter.map((a) => a);
-  console.log(search);
+
   const handleSearch = planets.filter((a) => a.name.includes(filtered));
+
+  useEffect(() => {
+    const newOptions = handleOptions.filter((option) => !saveFilter
+      .map(({ column: col }) => col).includes(option));
+    console.log('xablau');
+    setOption(newOptions);
+    setColumn(newOptions[0]);
+  }, [saveFilter.length]);
 
   return (
     <div>
@@ -43,11 +54,11 @@ function Table() {
           value={ column }
           onChange={ ({ target: { value } }) => setColumn(value) }
         >
-          <option>population</option>
-          <option>orbital_period</option>
-          <option>diameter</option>
-          <option>rotation_period</option>
-          <option>surface_water</option>
+          {
+            options.map((a, index) => (
+              <option key={ index }>{a}</option>
+            ))
+          }
         </select>
         <select
           data-testid="comparison-filter"
