@@ -11,6 +11,7 @@ describe('Test component Table', () => {
 
     const testName = screen.getByTestId("name-filter");
     expect(testName).toBeInTheDocument();
+    userEvent.type(testName, "Tat")
 
     const testColumn = screen.getByTestId("column-filter");
     expect(testColumn).toBeInTheDocument();
@@ -41,6 +42,21 @@ describe('Test component Table', () => {
     userEvent.type(testValue, '35')
     userEvent.click(testButton)
 
-    expect(screen.getByRole('listitem')).toBeInTheDocument();
+    const btnX = screen.getByRole('button', { name: /x/i })
+    userEvent.click(btnX);
+
+    userEvent.selectOptions(testColumn, 'population')
+    userEvent.selectOptions(testComparison, 'igual a')
+    userEvent.type(testValue, '2000000000')
+    userEvent.click(testButton)
+
+    const btnRemove = screen.getByRole('button', { name: /remover filtros/i })
+    userEvent.click(btnRemove)
+    
+    userEvent.selectOptions(testColumn, 'diameter')
+    userEvent.selectOptions(testComparison, 'maior que')
+    userEvent.type(testValue, '117999')
+    userEvent.click(testButton)
+    
   });
 })

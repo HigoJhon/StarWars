@@ -137,8 +137,11 @@ function Table() {
           </tr>
         </thead>
         <tbody>
-          {handleSearch.map((a) => (
-            <tr key={ a.name }>
+          {handleSearch.map((a, index) => (
+            <tr
+              key={ index }
+              data-testid="test-table"
+            >
               <td>{a.name}</td>
               <td>{a.rotation_period}</td>
               <td>{a.orbital_period}</td>
