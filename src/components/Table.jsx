@@ -32,10 +32,15 @@ function Table() {
   useEffect(() => {
     const newOptions = handleOptions.filter((option) => !saveFilter
       .map(({ column: col }) => col).includes(option));
-    console.log('xablau');
     setOption(newOptions);
     setColumn(newOptions[0]);
   }, [saveFilter.length]);
+
+  const handleRemove = (index) => {
+    const filll = saveFilter.filter((a) => a !== index);
+    setSave(filll);
+    setOption([...options, index.column]);
+  };
 
   return (
     <div>
@@ -82,6 +87,13 @@ function Table() {
         >
           Filtrar
         </button>
+        <button
+          type="button"
+          data-testid="button-remove-filters"
+          onClick={ () => setSave([]) || setOption(handleOptions) }
+        >
+          REMOVER FILTROS
+        </button>
         <br />
         <ul>
           {
@@ -89,7 +101,18 @@ function Table() {
               const { comparison: compa, column: colu, imputValue: valu } = a;
               const imp = `${compa} ${colu} ${valu}`;
               return (
-                <li key={ index }>{imp}</li>
+                <li
+                  data-testid="filter"
+                  key={ index }
+                >
+                  {imp}
+                  <button
+                    type="button"
+                    onClick={ () => handleRemove(a) }
+                  >
+                    X
+                  </button>
+                </li>
               );
             })
           }
