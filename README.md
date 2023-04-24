@@ -16,4 +16,4 @@ Criando React Hooks customizados.
 
 Escrevendo testes para garantir que a aplicação possua uma boa cobertura de testes.
 
-## Caso queria ver é so clonar e iniciar com o "npm start" no seu terminal.
+## Caso queria ver o prjogeto e so clicar no link https://higojhon.github.io/StarWars/.
