@@ -1,13 +1,19 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# :construction: StarWars planet search ! :construction:
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## O que foi desenvolvido nesse projeto:
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Foi criado uma pagina onde se encontra uma tabela com os planetas referente a serie do StarWars, onde vc pode ta fazendo sua pesquisa com base nos filtros.
+
+Utilizei o Context API do React para gerenciar estado;
+
+Utilizei o React Hook useState;
+
+Utilizei o React Hook useContext;
+
+Utilizei o React Hook useEffect;
+
+Criando React Hooks customizados.
+
+Escrevendo testes para garantir que a aplicação possua uma boa cobertura de testes.
+
+## Caso queria ver é so clonar e iniciar com o "npm start" no seu terminal.
